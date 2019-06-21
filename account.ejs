@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+        #menu ul {
+            background: #C71585;
+            list-style-type: none;
+            text-align: center;
+        }
+
+        #menu li {
+            color: #f1f1f1;
+            display: inline-block;
+            width: 120px;
+            height: 40px;
+            line-height: 40px;
+            margin-left: 0px;
+            padding-top: 0px;
+        }
+
+        #menu a {
+            text-decoration: none;
+            color: #fff;
+            display: block;
+        }
+
+        #menu a:hover {
+            background: #F1F1F1;
+            color: #333;
+        }
+
+        .sub-menu a.success {
+            text-align: right;
+            width: 300px;
+            height: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="menu">
+        <ul class="sub-menu">
+            <li><a href="/movie_list" style="font-size: 15px">Now Showing</a></li>
+            <li><a href="/movie_list_next" style="font-size: 15px">Coming Soon</a></li>
+            <li><a href="/account" style="font-size: 15px">Account</a></li>
+            <li><a href="/logout" style="font-size: 15px">Log out</a></li>
+            <li><a class="success" href="javascript:void()" style="font-size: 15px"><%= email%></a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <center>
+            <h2>Thông tin tài khoản</h2>
+        </center>
+        <form action="/account" method="POST">
+            <% user.rows.forEach(function(item){ %>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-8">
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" id="email" value="<%= item.email%>" name="email"
+                                readonly="readonly">
+                        </div>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-8">
+                        <div class="form-group">
+                            <label for="phone">Số điện thoại:</label>
+                            <input type="text" class="form-control" id="phone" value="<%= item.so_dien_thoai %>"
+                                name="phone">
+                        </div>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-8">
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" class="form-control" id="pwd" value="<%= item.mat_khau %>"
+                                name="pwd">
+                        </div>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+                <center> <button type="submit" class="btn btn-danger">Cập nhật</button></center>
+            </div>
+            <% }); %>
+    </div>
+    </form>
+    </div>
+
+
+
+</body>
+
+</html>
