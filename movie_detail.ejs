@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <title>Cinema</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="shortcut icon" href="../public/public2/images/favicon.ico">
+
+    <!-- CSS -->
+    <link href="/public2/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public2/css/flexslider.css" rel="stylesheet" type="text/css" />
+    <link href="/public2/css/fancySelect.css" rel="stylesheet" media="screen, projection" />
+    <link href="/public2/css/animate.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/public2/css/style.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- //Custom-Stylesheet-Links -->
+    <!--fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i"
+        rel="stylesheet">
+
+    <!-- FONTS -->
+    <link
+        href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic'
+        rel='stylesheet' type='text/css'>
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+</head>
+
+
+
+
+<body>
+
+    <!-- PRELOADER -->
+    <div id="preloader"><img src="/public2/images/preloader.gif" alt="" /></div>
+    <!-- //PRELOADER -->
+    <div class="preloader_hide">
+        <!-- PAGE -->
+        <div id="page">
+            <div id="menu">
+                <ul class="sub-menu">
+                    <li><a href="/movie_list" style="font-size: 15px">Now Showing</a></li>
+                    <li><a href="/movie_list_next" style="font-size: 15px">Coming Soon</a></li>
+                    <li><a href="/account" style="font-size: 15px">Account</a></li>
+                    <li><a href="/logout" style="font-size: 15px">Log out</a></li>
+                    <li><a class="success" href="javascript:void()" style="font-size: 15px"><%= cur_email%></a></li>
+                </ul>
+            </div>
+            <%
+                details.rows.forEach(function(detail){
+            %>
+            <div id="movie-infor">
+                <center>
+                    <h1><b><%= detail.ten_phim %></b></h1>
+                </center>
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-4">
+                        <iframe width="420" height="345" src="<%= detail.trailer%>">
+                        </iframe></div>
+                    <div class="col-sm-4" style="margin-top: 80px ">
+                        <p style="font-size: 20px"><b>Diễn viên:</b> <%= detail.dien_vien %></p>
+                        <p style="font-size: 20px"><b>Ngày phát hành:</b> <%= detail.ngay_cong_chieu%></p>
+                        <p style="font-size: 20px"><b>Thời lượng:</b> <%= detail.thoi_luong%> phút</p>
+                        <p style="font-size: 20px"><b>Loại:</b> 2D | 3D | IMAX | No sound</p>
+                        <p style="font-size: 20px"><b>Giá vé:</b>75.000 VND</p>
+                        <a href="/seat" class="btn btn-danger btn-lg" role="button">Đặt vé</a>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-8" style="margin-top: 20px ">
+                        <p>
+                            <h2><b>Tóm tắt:</b></h2>
+                        </p>
+                        <p style="font-size: 20px; font-family: 'Times New Roman', Times, serif">
+                            <%= detail.noi_dung%>
+                        </p>
+                        <div class="col-sm-2"></div>
+                    </div>
+                </div>
+            </div>
+            <% 
+        });
+            %>
+        </div>
+
+        <!-- Footer -->
+        <section id="footer">
+            <div class="container">
+                <!-- <div class="row text-center text-xs-center text-sm-left text-md-left">
+            				<div class="col-xs-12 col-sm-4 col-md-4"></div>
+            				<div class="col-xs-12 col-sm-4 col-md-4"></div>
+            				<div class="col-xs-12 col-sm-4 col-md-4">
+            					<h5>Quick links</h5>
+            					<ul class="list-unstyled quick-links">
+            						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
+            						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
+            						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+            						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
+            						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Videos</a></li>
+            					</ul>
+            				</div>
+            			</div> -->
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+                        <ul class="list-unstyled list-inline social text-center">
+                            <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li class="list-inline-item"><a href="javascript:void();"><i
+                                        class="fa fa-instagram"></i></a>
+                            </li>
+                            <li class="list-inline-item"><a href="javascript:void();"><i
+                                        class="fa fa-google-plus"></i></a>
+                            </li>
+                            <li class="list-inline-item"><a href="javascript:void();" target="_blank"><i
+                                        class="fa fa-envelope"></i></a></li>
+                        </ul>
+                    </div>
+                    </hr>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+                        <p><u><a href="javascript:void()" style="font-size: 15px">Đồ án lập trình Website 2 được thực
+                                    hiện bởi
+                                    nhóm 6 [Nodejs]</p>
+                        <p class="h6">&copy All right Reversed.<a class="text-green ml-2"
+                                href="https://www.sunlimetech.com" target="_blank">Sunlimetech</a></p>
+                    </div>
+                    </hr>
+                </div>
+            </div>
+        </section>
+        <!-- ./Footer -->
+        <script src="/public2/js/jquery.min.js" type="text/javascript"></script>
+        <script src="/public2/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="/public2/js/jquery.sticky.js" type="text/javascript"></script>
+        <script src="/public2/js/parallax.js" type="text/javascript"></script>
+        <script src="/public2/js/jquery.flexslider-min.js" type="text/javascript"></script>
+        <script src="/public2/js/jquery.jcarousel.js" type="text/javascript"></script>
+        <script src="/public2/js/fancySelect.js"></script>
+        <script src="/public2/js/animate.js" type="text/javascript"></script>
+        <script src="/public2/js/myscript.js" type="text/javascript"></script>
+        <script>
+            if (top != self) top.location.replace(self.location.href);
+        </script>
+</body>
+
+</html>
