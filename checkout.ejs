@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+        #menu ul {
+            background: #C71585;
+            list-style-type: none;
+            text-align: center;
+        }
+
+        #menu li {
+            color: #f1f1f1;
+            display: inline-block;
+            width: 120px;
+            height: 40px;
+            line-height: 40px;
+            margin-left: 0px;
+            padding-top: 0px;
+        }
+
+        #menu a {
+            text-decoration: none;
+            color: #fff;
+            display: block;
+        }
+
+        #menu a:hover {
+            background: #F1F1F1;
+            color: #333;
+        }
+
+        .sub-menu a.success {
+            text-align: right;
+            width: 300px;
+            height: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="menu">
+        <ul class="sub-menu">
+            <li><a href="/movie_list" style="font-size: 15px">Now Showing</a></li>
+            <li><a href="/movie_list_next" style="font-size: 15px">Coming Soon</a></li>
+            <li><a href="/account" style="font-size: 15px">Account</a></li>
+            <li><a href="/logout" style="font-size: 15px">Log out</a></li>
+            <li><a class="success" href="javascript:void()" style="font-size: 15px"><%= email%></a></li>
+        </ul>
+    </div>
+    <form action="/checkout" method="POST">
+        <div class="row">
+            <div class="col-sm 4"></div>
+            <div class="col-sm-4">
+                <center>
+                    <h1>Xác nhận thông tin đặt vé</h1>
+                </center>
+                <div class="card bg-dark text-white">
+                    <div class="card-body">
+                        <h4><b>Email: </b><%= email%><br></h4>
+                        <h4><b>Tên phim: </b><%= ten_phim%><br></h4>
+                        <h4><b>Chỗ ngồi: </b><%= seat%><br></h4>
+                        <h4><b>Giá tiền: </b><%= price %> VND</h4><br><br>
+                        <center><button type="submit" class="btn btn-primary">Xác nhận</b></center>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm 4"></div>
+        </div>
+    </form>
+
+    <!-- Footer -->
+    <section id="footer">
+        <div class="container">
+            <!-- <div class="row text-center text-xs-center text-sm-left text-md-left">
+        				<div class="col-xs-12 col-sm-4 col-md-4"></div>
+        				<div class="col-xs-12 col-sm-4 col-md-4"></div>
+        				<div class="col-xs-12 col-sm-4 col-md-4">
+        					<h5>Quick links</h5>
+        					<ul class="list-unstyled quick-links">
+        						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
+        						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
+        						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+        						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
+        						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Videos</a></li>
+        					</ul>
+        				</div>
+        			</div> -->
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+                    <ul class="list-unstyled list-inline social text-center">
+                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-twitter"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-instagram"></i></a>
+                        </li>
+                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-google-plus"></i></a>
+                        </li>
+                        <li class="list-inline-item"><a href="javascript:void();" target="_blank"><i
+                                    class="fa fa-envelope"></i></a></li>
+                    </ul>
+                </div>
+                </hr>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+                    <p><u><a href="javascript:void()">Đồ án lập trình Website 2 được thực hiện bởi
+                                nhóm 6 [Nodejs]</p>
+                    <p class="h6">&copy All right Reversed.<a class="text-green ml-2" href="https://www.sunlimetech.com"
+                            target="_blank">Sunlimetech</a></p>
+                </div>
+                </hr>
+            </div>
+        </div>
+    </section>
+    <!-- ./Footer -->
+</body>
+
+</html>
